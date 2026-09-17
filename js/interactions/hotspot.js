@@ -38,9 +38,26 @@ class Hotspot {
 
   _showTooltip(pt, el, index) {
     this.tooltip.innerHTML = `<h4>${pt.title || pt.label}</h4><p>${pt.content || ''}</p>`;
-    const left = Math.min(Math.max(parseFloat(el.style.left), 15), 75);
-    this.tooltip.style.left = left + '%';
-    this.tooltip.style.top = (parseFloat(el.style.top) + 8) + '%';
+
+    const x = parseFloat(el.style.left);
+    const y = parseFloat(el.style.top);
+
+    // Căn giữa tooltip theo trục ngang tại điểm chạm, giới hạn để không tràn 2 mép
+    const clampedX = Math.min(Math.max(x, 20), 80);
+    this.tooltip.style.left = clampedX + '%';
+    this.tooltip.style.transform = 'translateX(-50%)';
+
+    // Nếu điểm nằm ở nửa dưới khung, hiện tooltip PHÍA TRÊN điểm thay vì phía dưới
+    // để tránh bị che hoặc tràn ra ngoài khung (đây là nguyên nhân gây lỗi "bị che khung")
+    const showAbove = y > 55;
+    if (showAbove) {
+      this.tooltip.style.top = 'auto';
+      this.tooltip.style.bottom = (100 - y + 6) + '%';
+    } else {
+      this.tooltip.style.bottom = 'auto';
+      this.tooltip.style.top = (y + 6) + '%';
+    }
+
     this.tooltip.classList.add('show');
     el.classList.add('visited');
     this.visited.add(index);
