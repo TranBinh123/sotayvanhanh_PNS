@@ -1,4 +1,3 @@
-```javascript
 /* ============================================
    interactions/scenario.js
 
@@ -235,4 +234,3 @@ class Scenario {
     this._onComplete = null;
   }
 }
-```
