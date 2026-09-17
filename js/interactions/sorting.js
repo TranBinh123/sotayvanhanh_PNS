@@ -1,4 +1,3 @@
-```javascript
 /* ============================================
    interactions/sorting.js
 
@@ -456,4 +455,3 @@ class Sorting {
     this._onInteract = null;
   }
 }
-```
