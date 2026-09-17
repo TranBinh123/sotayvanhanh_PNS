@@ -76,7 +76,8 @@ class DragDrop {
 
     if (isCorrect) {
       this.correctCount++;
-      target.innerHTML = draggedItem.innerHTML;
+     // Hiển thị câu "Nên nói" của ô đích, thay vì lặp lại câu "Không nên".
+      target.innerHTML = target.dataset.answer || target.innerHTML;
       draggedItem.setAttribute('draggable', 'false');
       draggedItem.style.opacity = '.35';
       draggedItem.style.cursor = 'default';
