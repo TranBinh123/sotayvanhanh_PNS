@@ -1,0 +1,40 @@
+/* ============================================
+   animations.css — transitions & keyframes
+   ============================================ */
+
+@keyframes slideIn{
+  from{ opacity:0; transform:translateY(14px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+@keyframes fadeIn{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+@keyframes pulse{
+  0%{ box-shadow:0 0 0 0 rgba(255,102,0,.45); }
+  70%{ box-shadow:0 0 0 12px rgba(255,102,0,0); }
+  100%{ box-shadow:0 0 0 0 rgba(255,102,0,0); }
+}
+@keyframes shake{
+  0%,100%{ transform:translateX(0); }
+  25%{ transform:translateX(-4px); }
+  75%{ transform:translateX(4px); }
+}
+@keyframes popIn{
+  from{ opacity:0; transform:scale(.85); }
+  to{ opacity:1; transform:scale(1); }
+}
+.pop-in{ animation:popIn .3s ease; }
+
+/* nav button micro-interaction */
+.nav-btn.primary:not(:disabled):hover{ box-shadow:0 8px 20px rgba(0,102,204,.45); }
+
+/* confetti-lite for completion slide */
+.confetti-dot{
+  position:absolute; width:8px; height:8px; border-radius:2px; opacity:.9;
+  animation:fall 2.6s linear infinite;
+}
+@keyframes fall{
+  from{ transform:translateY(-20px) rotate(0deg); opacity:1; }
+  to{ transform:translateY(340px) rotate(280deg); opacity:0; }
+}

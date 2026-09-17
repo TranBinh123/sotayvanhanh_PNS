@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="no" ?>
+<manifest identifier="PNS_TAIDAOTAO_SOTAY_VANHANH_2026"
+          version="1"
+          xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                              http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+
+  <organizations default="PNS_ORG">
+    <organization identifier="PNS_ORG">
+      <title>Tái đào tạo Sổ tay vận hành - Phòng Nhân sự</title>
+      <item identifier="ITEM_1" identifierref="RES_1">
+        <title>Tái đào tạo Sổ tay vận hành - Phòng Nhân sự</title>
+        <adlcp:masteryscore>80</adlcp:masteryscore>
+      </item>
+    </organization>
+  </organizations>
+
+  <resources>
+    <resource identifier="RES_1" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <file href="index.html"/>
+      <file href="css/main.css"/>
+      <file href="css/components.css"/>
+      <file href="css/animations.css"/>
+      <file href="js/app.js"/>
+      <file href="js/audio-manager.js"/>
+      <file href="js/scorm-api.js"/>
+      <file href="js/storage.js"/>
+      <file href="js/report.js"/>
+      <file href="js/interactions/accordion.js"/>
+      <file href="js/interactions/tabs.js"/>
+      <file href="js/interactions/dragdrop.js"/>
+      <file href="js/interactions/hotspot.js"/>
+      <file href="js/interactions/flipcard.js"/>
+      <file href="js/interactions/quiz.js"/>
+      <file href="js/interactions/scenario.js"/>
+      <file href="js/interactions/sorting.js"/>
+    </resource>
+  </resources>
+
+</manifest>
