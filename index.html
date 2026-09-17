@@ -188,33 +188,78 @@
 
     <!-- SLIDE 9 : NHỮNG CÂU NÓI CẦN BỎ — DRAGDROP -->
     <section class="slide" data-slide="9" data-audio="audio/slide-09.mp3">
-      <span class="slide-eyebrow">Ứng xử chuẩn</span>
-      <h2>Nối câu "không nên" với câu "nên" tương ứng</h2>
-      <p class="lead">Kéo từng câu ở cột trái, thả đúng vào ô cột phải.</p>
-      <div class="dragdrop-wrap" data-interaction="dragdrop"
-           data-pairs='[
-             {"a":"Đây là quy định.","b":"Theo quy định hiện tại, trường hợp của anh/chị được xử lý như sau…"},
-             {"a":"Em không biết, em hỏi người khác đi.","b":"Nội dung này tôi cần kiểm tra lại để trả lời chính xác. Tôi sẽ phản hồi anh/chị trước …"},
-             {"a":"Hồ sơ đang xử lý.","b":"Hồ sơ của anh/chị hiện đang ở bước …, dự kiến hoàn tất vào …"},
-             {"a":"Không được.","b":"Trường hợp này hiện chưa thể thực hiện theo cách đó vì … Phương án phù hợp là …"}
-           ]'>
-        <div class="dd-col">
-          <h4>❌ Không nên</h4>
-          <div class="dd-item" draggable="true" data-match="m1">Đây là quy định.</div>
-          <div class="dd-item" draggable="true" data-match="m2">Em không biết, em hỏi người khác đi.</div>
-          <div class="dd-item" draggable="true" data-match="m3">Hồ sơ đang xử lý.</div>
-          <div class="dd-item" draggable="true" data-match="m4">Không được.</div>
-        </div>
-        <div class="dd-col">
-          <h4>✅ Nên nói</h4>
-          <div class="dd-target" data-match="m1">Thả câu tương ứng vào đây</div>
-          <div class="dd-target" data-match="m2">Thả câu tương ứng vào đây</div>
-          <div class="dd-target" data-match="m3">Thả câu tương ứng vào đây</div>
-          <div class="dd-target" data-match="m4">Thả câu tương ứng vào đây</div>
-        </div>
+  <span class="slide-eyebrow">Ứng xử chuẩn</span>
+  <h2>Nối câu "không nên" với câu "nên" tương ứng</h2>
+
+  <p class="lead">
+    Kéo từng câu ở cột <strong>❌ Không nên</strong> và thả vào câu trả lời phù hợp ở cột <strong>✅ Nên nói</strong>.
+  </p>
+
+  <div class="dragdrop-guide">
+    <span>👉 Cách chơi:</span>
+    Chọn một câu ở cột <strong>❌ Không nên</strong> → kéo sang ô <strong>✅ Nên nói</strong> phù hợp.
+    <span class="dragdrop-guide-mobile">
+      Trên điện thoại: chạm và giữ câu cần kéo, di chuyển đến ô trả lời phù hợp rồi thả tay.
+    </span>
+  </div>
+
+  <div class="dragdrop-wrap" data-interaction="dragdrop"
+       data-pairs='[
+         {"a":"Đây là quy định.","b":"Theo quy định hiện tại, trường hợp của anh/chị được xử lý như sau…"},
+         {"a":"Em không biết, em hỏi người khác đi.","b":"Nội dung này tôi cần kiểm tra lại để trả lời chính xác. Tôi sẽ phản hồi anh/chị trước …"},
+         {"a":"Hồ sơ đang xử lý.","b":"Hồ sơ của anh/chị hiện đang ở bước …, dự kiến hoàn tất vào …"},
+         {"a":"Không được.","b":"Trường hợp này hiện chưa thể thực hiện theo cách đó vì … Phương án phù hợp là …"}
+       ]'>
+
+    <div class="dd-col">
+      <h4>❌ Không nên</h4>
+
+      <div class="dd-item" draggable="true" data-match="m1">
+        Đây là quy định.
       </div>
-      <p style="margin-top:14px; font-size:14px; color:var(--color-text-muted);">Gợi ý đáp án đúng (kéo thả để tự kiểm tra): "Theo quy định hiện tại…", "Nội dung này tôi cần kiểm tra lại…", "Hồ sơ của anh/chị hiện đang ở bước…", "Trường hợp này hiện chưa thể…".</p>
-    </section>
+
+      <div class="dd-item" draggable="true" data-match="m2">
+        Em không biết, em hỏi người khác đi.
+      </div>
+
+      <div class="dd-item" draggable="true" data-match="m3">
+        Hồ sơ đang xử lý.
+      </div>
+
+      <div class="dd-item" draggable="true" data-match="m4">
+        Không được.
+      </div>
+    </div>
+
+    <div class="dd-col">
+      <h4>✅ Nên nói</h4>
+
+      <div class="dd-target"
+           data-match="m1"
+           data-answer="Theo quy định hiện tại, trường hợp của anh/chị được xử lý như sau…">
+        Kéo câu phù hợp vào đây
+      </div>
+
+      <div class="dd-target"
+           data-match="m2"
+           data-answer="Nội dung này tôi cần kiểm tra lại để trả lời chính xác. Tôi sẽ phản hồi anh/chị trước …">
+        Kéo câu phù hợp vào đây
+      </div>
+
+      <div class="dd-target"
+           data-match="m3"
+           data-answer="Hồ sơ của anh/chị hiện đang ở bước …, dự kiến hoàn tất vào …">
+        Kéo câu phù hợp vào đây
+      </div>
+
+      <div class="dd-target"
+           data-match="m4"
+           data-answer="Trường hợp này hiện chưa thể thực hiện theo cách đó vì … Phương án phù hợp là …">
+        Kéo câu phù hợp vào đây
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- SLIDE 10 : QUY TRÌNH PHẢN HỒI — SORTING -->
     <section class="slide" data-slide="10" data-audio="audio/slide-10.mp3">
