@@ -1,4 +1,3 @@
-```javascript
 /* ============================================
    interactions/dragdrop.js
    Hỗ trợ chuột + cảm ứng.
@@ -364,4 +363,3 @@ class DragDrop {
     this.targets = [];
   }
 }
-```
