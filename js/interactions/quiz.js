@@ -1,4 +1,3 @@
-```javascript
 /* ============================================
    interactions/quiz.js
    questions: [{id, text, options:[..], correct:index, explain}]
@@ -374,4 +373,3 @@ class Quiz {
     this._onComplete = null;
   }
 }
-```
