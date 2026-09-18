@@ -270,6 +270,142 @@
 }
 
 /* ==================================================
+   HOTSPOT GRID
+   (bố cục dạng lưới, nội dung mở rộng tại chỗ —
+   không dùng định vị tuyệt đối nên không thể bị
+   che hoặc tràn ra ngoài khung slide)
+   ================================================== */
+
+.hotspot-grid{
+  display:grid;
+
+  /*
+   * Máy tính / màn hình rộng: 1 hàng ngang, 4 cột.
+   */
+  grid-template-columns:repeat(4, 1fr);
+  gap:14px;
+
+  align-items:start;
+}
+
+.hotspot-grid-item{
+  background:#F0F6FF;
+  border:1px solid #C7D8EC;
+  border-radius:var(--radius-md);
+  overflow:hidden;
+
+  display:flex;
+  flex-direction:column;
+}
+
+.hotspot-grid-btn{
+  width:100%;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  padding:14px;
+  text-align:left;
+  font-family:inherit;
+  color:var(--color-text);
+}
+
+.hotspot-grid-btn:hover{
+  background:rgba(0,102,204,.06);
+}
+
+.hotspot-grid-btn:focus-visible{
+  outline:3px solid var(--color-primary);
+  outline-offset:-3px;
+}
+
+.hotspot-grid-badge{
+  flex:0 0 auto;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:var(--color-accent);
+  color:#fff;
+  font-weight:800;
+  font-size:14px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hotspot-grid-item.is-open .hotspot-grid-badge{
+  background:var(--color-success);
+}
+
+.hotspot-grid-title{
+  flex:1;
+  font-weight:700;
+  font-size:14px;
+  line-height:1.3;
+
+  /*
+   * Cho phép tiêu đề xuống dòng thay vì bị cắt/tràn
+   * khi tên điểm dài (vd: "TRÁCH NHIỆM").
+   */
+  white-space:normal;
+  word-break:break-word;
+}
+
+.hotspot-grid-caret{
+  flex:0 0 auto;
+  width:10px;
+  height:10px;
+  border-right:2px solid var(--color-primary);
+  border-bottom:2px solid var(--color-primary);
+  transform:rotate(45deg);
+  transition:transform .2s ease;
+  margin-right:2px;
+}
+
+.hotspot-grid-item.is-open .hotspot-grid-caret{
+  transform:rotate(-135deg);
+}
+
+/*
+ * Kỹ thuật "grid-template-rows: 0fr -> 1fr" để mở rộng
+ * nội dung theo đúng chiều cao tự nhiên của nó (không cần
+ * đoán max-height), đồng thời tránh mọi nguy cơ bị cắt/che.
+ */
+.hotspot-grid-content{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .25s ease;
+}
+
+.hotspot-grid-item.is-open .hotspot-grid-content{
+  grid-template-rows:1fr;
+}
+
+.hotspot-grid-content-inner{
+  overflow:hidden;
+  min-height:0;
+}
+
+.hotspot-grid-content-inner p{
+  margin:0;
+  padding:0 14px 14px;
+  font-size:13.5px;
+  line-height:1.55;
+  color:var(--color-text-muted);
+
+  /*
+   * Đảm bảo không bao giờ tràn ngang ra ngoài thẻ,
+   * kể cả khi nội dung là một chuỗi dài không dấu cách.
+   */
+  overflow-wrap:anywhere;
+}
+
+/* ==================================================
    DRAG & DROP
    ================================================== */
 
@@ -679,6 +815,36 @@
     font-size:13px;
 
     padding:12px;
+  }
+
+  /*
+   * HOTSPOT GRID:
+   * Điện thoại → 2 cột x 2 hàng thay vì 1 hàng ngang,
+   * để mỗi thẻ đủ rộng, chữ không bị bóp quá chật.
+   */
+  .hotspot-grid{
+    grid-template-columns:repeat(2, 1fr);
+    gap:10px;
+  }
+
+  .hotspot-grid-btn{
+    padding:10px;
+    gap:8px;
+  }
+
+  .hotspot-grid-title{
+    font-size:13px;
+  }
+
+  .hotspot-grid-badge{
+    width:28px;
+    height:28px;
+    font-size:13px;
+  }
+
+  .hotspot-grid-content-inner p{
+    font-size:13px;
+    padding:0 10px 10px;
   }
 
   /*
