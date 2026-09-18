@@ -195,6 +195,26 @@ html,body{
   color:var(--color-primary-dark);
 }
 
+.role-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:16px;
+}
+.role-row{
+  border-left:4px solid var(--color-primary-dark);
+  background:#FFF7EF;
+  padding:14px 18px;
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  display:grid;
+  /* Cột nhãn co giãn theo nội dung (tối đa 220px) thay vì cố định,
+     để không chiếm hết chỗ của cột mô tả trên màn hình hẹp. */
+  grid-template-columns:minmax(120px,220px) 1fr;
+  gap:16px;
+  align-items:center;
+}
+.role-row strong{ color:var(--color-primary-dark); }
+
 /* ---------- Footer nav ---------- */
 #navbar{
   position:fixed;
@@ -273,6 +293,11 @@ html,body{
 @media (max-width:640px){
   .slide{
     padding:24px 20px;
+  }
+
+  .role-row{
+    grid-template-columns:1fr;
+    gap:4px;
   }
 
   .slide h1{
