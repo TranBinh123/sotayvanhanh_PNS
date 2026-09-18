@@ -104,17 +104,29 @@ class Hotspot {
      * XỬ LÝ VỊ TRÍ THEO CHIỀU NGANG
      * ==================================================
      *
-     * Không cho tooltip bám quá sát mép trái/phải.
+     * Trên màn hình hẹp (<=640px, khớp breakpoint trong
+     * components.css), tooltip được CSS kéo gần full chiều
+     * rộng khung (width: calc(100% - 24px)). Nếu vẫn canh
+     * theo vị trí điểm chạm (18% hoặc 82%) thì với điểm nằm
+     * sát 2 mép — tooltip sẽ bị đẩy tràn ra ngoài khung vì
+     * quá khổ so với phần còn lại. Vì vậy trên mobile luôn
+     * canh giữa khung, KHÔNG phụ thuộc vị trí điểm chạm.
      *
-     * Trước đây giới hạn 20–80%.
-     * Nay dùng 18–82% để tận dụng không gian tốt hơn.
+     * Trên màn hình rộng hơn, vẫn giữ cách canh theo điểm
+     * chạm (giới hạn 18–82%) như trước.
      */
-    const clampedX = Math.min(
-      Math.max(x, 18),
-      82
-    );
+    const isNarrowScreen = window.innerWidth <= 640;
 
-    this.tooltip.style.left = clampedX + '%';
+    if (isNarrowScreen) {
+      this.tooltip.style.left = '50%';
+    } else {
+      const clampedX = Math.min(
+        Math.max(x, 18),
+        82
+      );
+      this.tooltip.style.left = clampedX + '%';
+    }
+
     this.tooltip.style.transform = 'translateX(-50%)';
 
     /*
