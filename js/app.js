@@ -29,6 +29,7 @@ const App = (function () {
     10: 'audio/slide-10.wav',
     11: 'audio/slide-11.wav',
     12: 'audio/slide-12.wav',
+    13: 'audio/slide-13.wav',
   };
 
   function init() {
