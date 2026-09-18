@@ -430,6 +430,35 @@ const App = (function () {
 
     slideEl
       .querySelectorAll(
+        '[data-interaction="hotspot-grid"]'
+      )
+      .forEach(el => {
+        const hsg =
+          new HotspotGrid(el);
+
+        hsg.render();
+
+        hsg.onInteract(
+          (
+            type,
+            id,
+            detail
+          ) => {
+            ReportManager.logInteraction(
+              type,
+              id,
+              detail
+            );
+          }
+        );
+
+        activeInteractions.push(
+          hsg
+        );
+      });
+
+    slideEl
+      .querySelectorAll(
         '[data-interaction="dragdrop"]'
       )
       .forEach(el => {
